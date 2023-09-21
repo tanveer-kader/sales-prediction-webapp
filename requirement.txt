@@ -1,5 +1,5 @@
 numpy
 pickle-mixin
-streamlit
-streamlit-option-menu == 0.3.2
+streamlit==1.26.0
+streamlit-option-menu==0.3.6
 scikit-learn
