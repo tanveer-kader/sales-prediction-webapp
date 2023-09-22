@@ -111,4 +111,4 @@ if(selected == "Icecream Sales Prediction"):
     st.caption("XGBoost Regressor Model")
     st.success(result_xgb)
     
-# streamlit run "C:/Users/TanveerKader/Desktop/sales-prediction-webapp/salesprediction.py"
+# streamlit run "C:/Users/TanveerKader/Desktop/Ml Web app/Uploaded/sales-prediction-webapp/salesprediction.py"
