@@ -9,22 +9,27 @@ import numpy as np
 import pickle
 import streamlit as st
 from streamlit_option_menu import option_menu
+import os
 
-#file1 = open('C:/Users/TanveerKader/Desktop/Ml Web app/sales-prediction-webapp/softdrinks_sale_lr_model.sav', 'rb')
-#file2 = open('C:/Users/TanveerKader/Desktop/Ml Web app/sales-prediction-webapp/softdrinks_sale_xgb_model.sav', 'rb')
-#file3 = open('C:/Users/TanveerKader/Desktop/Ml Web app/sales-prediction-webapp/icecream_sale_lr_model.sav', 'rb')
-#file4 = open('C:/Users/TanveerKader/Desktop/Ml Web app/sales-prediction-webapp/icecream_sale_xgb_model.sav', 'rb')
+# Get the directory of the current script
+script_dir = os.path.dirname(__file__)
 
-file1 = open('softdrinks_sale_lr_model.sav', 'rb')
-file2 = open('softdrinks_sale_xgb_model.sav', 'rb')
-file3 = open('icecream_sale_lr_model.sav', 'rb')
-file4 = open('icecream_sale_xgb_model.sav', 'rb')
+# Define the relative paths to your model files
+lr_model_path = os.path.join(script_dir, 'icecream_sale_lr_model.sav')
+xgb_model_path = os.path.join(script_dir, 'icecream_sale_xgb_model.sav')
 
-lr_model_sd = pickle.load(file1) 
-xgb_model_sd = pickle.load(file2) 
+# Load models using relative paths
+lr_model_ic = pickle.load(open(lr_model_path, 'rb'))
+xgb_model_ic = pickle.load(open(xgb_model_path, 'rb'))
 
-lr_model_ic = pickle.load(file3) 
-xgb_model_ic = pickle.load(file4) 
+# Define the relative paths to your model files
+lr_model_path = os.path.join(script_dir, 'softdrinks_sale_lr_model.sav')
+xgb_model_path = os.path.join(script_dir, 'softdrinks_sale_xgb_model.sav')
+
+# Load models using relative paths
+lr_model_sd = pickle.load(open(lr_model_path, 'rb'))
+xgb_model_sd = pickle.load(open(xgb_model_path, 'rb'))
+
 
 
 def softdrinks_sale_prediction(input_data):
@@ -106,4 +111,4 @@ if(selected == "Icecream Sales Prediction"):
     st.caption("XGBoost Regressor Model")
     st.success(result_xgb)
     
-#streamlit run "C:/Users/TanveerKader/Desktop/Ml Web app/sales-prediction-webapp/salesprediction.py"
+# streamlit run "C:/Users/TanveerKader/Desktop/sales-prediction-webapp/salesprediction.py"
